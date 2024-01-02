@@ -47,6 +47,7 @@ let handleNewNote = (event)=>{
       <div>my form shall be here
         <form onSubmit={handleSubmit}>
           <input value={newNote} onChange={handleNewNote}></input>  
+          
           <button type='submit' >ADD</button>
         </form>
       </div>
