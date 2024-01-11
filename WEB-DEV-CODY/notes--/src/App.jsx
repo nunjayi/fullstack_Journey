@@ -13,9 +13,13 @@ function AddNotes(props ){
     <>
         <div>
           <p>MY NOTES</p>
-          {
-            notes.map((item)=><li key={item.id}>{item}</li>)
-          }
+          <ul>
+                {
+                  notes.map((item)=><li key={item.id}>{item}</li>)
+                          }
+
+          </ul>
+         
          
         </div>
     </>
@@ -44,13 +48,15 @@ let handleNewNote = (event)=>{
 
   return ( 
     <>
-      <div>my form shall be here
+      <div>
+        
         <form onSubmit={handleSubmit}>
           <input value={newNote} onChange={handleNewNote}></input>  
           
           <button type='submit' >ADD</button>
         </form>
       </div>
+     
       <AddNotes notes = {notes} />
     </>
   )
