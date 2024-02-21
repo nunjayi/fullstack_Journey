@@ -40,3 +40,30 @@
 .read-the-docs {
   color: #888;
 }
+li{
+  color: cadetblue;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  
+  padding:0;
+  border-radius: 10px;
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.9);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.sub-wrapper{
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding:40px;
+}

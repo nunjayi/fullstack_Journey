@@ -1,109 +1,71 @@
 import { useState } from 'react'
-
+import DisplayContacts from './DisplayContacts'
 import './App.css'
-//form component to enter and submit contacts
-function EnterContact(){
-  const [Contacts, updateContacts] = useState([])
-  const [newContact, updateNewNote] = useState('')
-  const [phoneNumbers, updateNumbers] = useState([])
-  const [phoneEntered, enterPhone]= useState('')
-  const [phoneBook, updatePhonebook] = useState([])
- 
-  // handle the form being submitted
-  let handleSubmit =(e)=>{
-     e.preventDefault()
 
-     if(typeof newContact === 'string' && newContact.length == 0 ){
-      window.alert('enter a valid name')
-         }else{
+function Phonebook(){
+    
+//state hook to track data entered
+    const [name, updateName] = useState('')
+    const [number, updateNumber] = useState('')
+    const [allNames, updateAllNames] = useState([])
+//handle submission of the form
+    let handleSubmit = (e)=>{
+      e.preventDefault()
+      console.log('submitted')
+     
+      //check if entry is empty
+      if(name.length === 0){
+        window.alert("enter a valid name")
+       
+      }else if(number == ''){
+        window.alert('enter a valid number')
+    }else{
+         //add name to storage array
+            let AddedNames = [...allNames,name]
+            updateAllNames(AddedNames)
+            console.log(AddedNames)
 
-         //prevent a duplicate number
-      let duplicateName =Contacts.find((x)=>x === newContact)
-         //check to see if the name already entered exists 
-        if(duplicateName == undefined){
-         //update the info in the respective arrays 
-          let allContacts = [...Contacts,newContact]
-          let allPhoneNumbers = [...phoneNumbers, phoneEntered]
-          //object criterria to store the contact to the phonebook variable
-          const personObject = {
-              id:Contacts.length + 1,
-              name:newContact,
-              number:phoneEntered,
-          }
-          const phoneBook_array = phoneBook.concat(personObject)
-         
-         //update States of the arrays used to store the contacts
-          updateNumbers(allPhoneNumbers)
-          updateContacts(allContacts)
-          updatePhonebook(phoneBook_array)
+      }
+      
+      //check if  a name already exists
+      if(Boolean(allNames.find(x=>x === name))=== true ){
+          window.alert(`${name} already exist in the phonebook`)
+      }
+     
 
-
-
-         console.log(phoneBook)
-         //console log the results 
-          //console.log(phoneEntered)
-          //console.log(Contacts)
-         // console.log(phoneBook)
-          
-          console.log('form submit ')
-        }else {
-            window.alert(`${newContact} already exists`)
-        }
-
+      //reset input field
+      updateName('')
+      updateNumber('')
+    }
+//name entered
+    let nameInput = (e)=>{
+        updateName(e.target.value)
+        console.log(e.target.value)
+    }
+//number entered
+    let numberEntered = (e)=>{
+        updateNumber(e.target.value)
+        console.log(e.target.value)
     }
     
-    updateNewNote('')
-    enterPhone('')
-   
-  }
-  //entered contact
-  let contactEntered = (e)=>{
-      
-      updateNewNote(e.target.value) 
-      console.log(newContact) 
-}
-//handle entered phoneNumber
-let newPhoneNumber= (e)=>{
-      enterPhone(e.target.value)
-      //console.log(phoneEntered)
-}
+    return(
+        <section className='wrapper'>
+          <div className='sub-wrapper'>
+                <form action="" onSubmit={handleSubmit}>
+                    <p>Enter Name:</p>
+                    <input type="text" value={name} onChange={nameInput}  minLength={10} maxLength={20}/>
+                    <br></br>
+                    <p>Enter Number:</p>
+                    <input type='text' value={number} onChange={numberEntered}  minLength={10} maxLength={10}/><br />
+                    <button type='submit'>ADD</button>              
+                </form>
+            </div>
+            <div className='sub-wrapper'>
+              <DisplayContacts names = {allNames} />
+            </div>
+        </section>
 
-
-  return(
-      <>
-      <div>
-        <div>
-          <p><b>PHONEBOOK</b></p>
-          <form onSubmit={handleSubmit}>
-            name: <input value={newContact} onChange={contactEntered}/><br />
-            phone: <input minLength={10} maxLength={10} value={phoneEntered}onChange={newPhoneNumber}  /><br /><br />
-            <button type='submit'>SUBMIT</button>
-          </form>
-        </div>
-          <div>
-             {
-                  
-
-             }
-          </div>
-      </div>
-       
-        
-
-      </>
-  )
+    )
 }
 
-
-function App() {
-
-
-  return (
-    <>
-      <EnterContact />    
-    
-    </>
-  )
-}
-
-export default App
+export default Phonebook

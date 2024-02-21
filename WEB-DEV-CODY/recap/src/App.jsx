@@ -4,47 +4,26 @@ import './App.css'
 
 
 function App() {
-  let handleSubmit=(e)=>{
-    e.preventDefault();
+
+    let map =(arr, fn)=>{
+      let array = arr
+      let length = array.length+1
+      for(i=0;i<length; i++){
+          array[i]= array[i]++
+      }
+      return(array)
+      console.log(map([1,2,3,4]))
+    }
+    
 
 
-    // Read the form data
-    const form = e.target;
-    const formData = new FormData(form);
-
-    // You can pass formData as a fetch body directly:
-    fetch('/some-api', { method: form.method, body: formData });
-
-    // Or you can work with it as a plain object:
-    const formJson = Object.fromEntries(formData.entries());
-    console.log(`my form data is ${formJson}`);
-    console.log(formJson)
-    console.log(formData)
-  }
-
+ return(
+  <div>
+    <p>{console.log(map([1,2,3,4]))}</p>
+    <p></p>
+  </div>
   
-
-  return (
-    <form method="post" onSubmit={handleSubmit}>
-      <label>
-        Text input: <input name="myInput" defaultValue="Some initial value" />
-      </label>
-      <hr />
-      <label>
-        Checkbox: <input type="checkbox" name="myCheckbox" defaultChecked={true} />
-      </label>
-      <hr />
-      <p>
-        Radio buttons:
-        <label><input type="radio" name="myRadio" value="option1" /> Option 1</label>
-        <label><input type="radio" name="myRadio" value="option2" defaultChecked={true} /> Option 2</label>
-        <label><input type="radio" name="myRadio" value="option3" /> Option 3</label>
-      </p>
-      <hr />
-      <button type="reset">Reset form</button>
-      <button type="submit">Submit form</button>
-    </form>
-  );
+ )
 }
 
 

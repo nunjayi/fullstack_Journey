@@ -1,0 +1,29 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "note": "buy milk from the shop",
+      "important": "true"
+    },
+    {
+      "id": 1,
+      "note": "say hi to grandpa",
+      "important": "false"
+    },
+    {
+      "id": 2,
+      "note": "visit my auntie",
+      "important": "true"
+    },
+    {
+      "id": 3,
+      "note": "buy a can of sod",
+      "important": "true"
+    },
+    {
+      "id": 4,
+      "note": "",
+      "important": ""
+    }
+  ]
+}

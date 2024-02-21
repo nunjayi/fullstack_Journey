@@ -1,0 +1,46 @@
+#root {
+  
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.card-display{
+  width: 600px;
+  color:greenyellow;
+}
+
+.card,.card-display {
+  padding: 2em;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.card>p>span{
+  color: rgb(11, 12, 12);
+  font-weight: bold;
+  width: 40px;
+  height:20px ;
+  padding: 10px;
+  background:  #1CB5E0;
+  border-radius: 10px;
+}
+button{
+  border-radius: 10px;
+  border:0;
+  padding:10px;
+  outline: 0;
+  background-color: #000000;
+}
+
+.read-the-docs {
+  color: #888;
+}
+input{
+  border-radius: 10px;
+  outline: 0;
+}

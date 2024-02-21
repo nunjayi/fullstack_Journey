@@ -1,0 +1,39 @@
+{
+  "todos": [
+    {
+      "id": "0db9",
+      "content": "load balancer",
+      "status": false
+    },
+    {
+      "id": "ef3a",
+      "content": "backend for frontend - bff",
+      "status": false
+    },
+    {
+      "id": "1448",
+      "content": "reverse proxys",
+      "status": false
+    },
+    {
+      "id": "b0da",
+      "content": "micro-frontends",
+      "status": false
+    },
+    {
+      "id": "2196",
+      "content": "api endpoints, API",
+      "status": false
+    },
+    {
+      "id": "1bb9",
+      "content": "endpoints in a url",
+      "status": false
+    },
+    {
+      "id": "ee82",
+      "content": "kafka",
+      "status": false
+    }
+  ]
+}
